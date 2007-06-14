@@ -6,15 +6,13 @@
 Summary:	DBX extension module for PHP
 Name:		php-%{modname}
 Version:	1.1.0
-Release:	%mkrel 14
+Release:	%mkrel 15
 Group:		Development/PHP
 URL:		http://www.php.net
 License:	PHP License
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tar.bz2
 Source1:	%{modname}.ini
 BuildRequires:	php-devel >= 3:5.2.0
-Provides:	php5-dbx
-Obsoletes:	php5-dbx
 Epoch:		1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -36,6 +34,15 @@ databases you wish to use.
 cp %{SOURCE1} %{inifile}
 
 %build
+export CFLAGS="%{optflags}"
+export CXXFLAGS="%{optflags}"
+export FFLAGS="%{optflags}"
+
+%if %mdkversion >= 200710
+export CFLAGS="$CFLAGS -fstack-protector"
+export CXXFLAGS="$CXXFLAGS -fstack-protector"
+export FFLAGS="$FFLAGS -fstack-protector"
+%endif
 
 phpize
 %configure2_5x --with-libdir=%{_lib} \
@@ -61,5 +68,3 @@ install -m0644 %{inifile} %{buildroot}%{_sysconfdir}/php.d/
 %doc CREDITS howto_extend_dbx.html package.xml tests
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
-
