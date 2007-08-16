@@ -6,7 +6,7 @@
 Summary:	DBX extension module for PHP
 Name:		php-%{modname}
 Version:	1.1.0
-Release:	%mkrel 15
+Release:	%mkrel 16
 Group:		Development/PHP
 URL:		http://www.php.net
 License:	PHP License
@@ -34,15 +34,7 @@ databases you wish to use.
 cp %{SOURCE1} %{inifile}
 
 %build
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags}"
-export FFLAGS="%{optflags}"
-
-%if %mdkversion >= 200710
-export CFLAGS="$CFLAGS -fstack-protector"
-export CXXFLAGS="$CXXFLAGS -fstack-protector"
-export FFLAGS="$FFLAGS -fstack-protector"
-%endif
+%serverbuild
 
 phpize
 %configure2_5x --with-libdir=%{_lib} \
