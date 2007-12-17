@@ -14,7 +14,6 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tar.bz2
 Source1:	%{modname}.ini
 BuildRequires:	php-devel >= 3:5.2.0
 Epoch:		1
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The dbx module is a database abstraction layer. The dbx functions
