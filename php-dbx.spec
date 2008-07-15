@@ -6,7 +6,7 @@
 Summary:	DBX extension module for PHP
 Name:		php-%{modname}
 Version:	1.1.0
-Release:	%mkrel 20
+Release:	%mkrel 22
 Group:		Development/PHP
 URL:		http://www.php.net
 License:	PHP License
@@ -14,7 +14,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tar.bz2
 Source1:	%{modname}.ini
 BuildRequires:	php-devel >= 3:5.2.0
 Epoch:		1
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The dbx module is a database abstraction layer. The dbx functions
