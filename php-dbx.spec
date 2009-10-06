@@ -12,6 +12,7 @@ URL:		http://www.php.net
 License:	PHP License
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tar.bz2
 Source1:	%{modname}.ini
+Patch0:		dbx-1.1.0-php530.diff
 BuildRequires:	php-devel >= 3:5.2.0
 Epoch:		1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -30,6 +31,8 @@ databases you wish to use.
 
 %setup -q -n %{modname}-%{version}
 [ "../package.xml" != "/" ] && mv ../package.xml .
+
+%patch0 -p1
 
 cp %{SOURCE1} %{inifile}
 
