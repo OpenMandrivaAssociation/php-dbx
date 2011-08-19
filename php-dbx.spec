@@ -6,7 +6,7 @@
 Summary:	DBX extension module for PHP
 Name:		php-%{modname}
 Version:	1.1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Development/PHP
 URL:		http://www.php.net
 License:	PHP License
