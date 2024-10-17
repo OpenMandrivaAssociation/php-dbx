@@ -8,7 +8,7 @@ Name:		php-%{modname}
 Version:	1.1.2
 Release:	7
 Group:		Development/PHP
-URL:		http://www.php.net
+URL:		https://www.php.net
 License:	PHP License
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
